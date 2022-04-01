@@ -47,6 +47,18 @@ namespace Warp.Controls
                         ListLocals.SelectedIndex = ListLocals.Items.Count - 1;
                 }
 
+            var dir1 = @"C:\Warp\boxnet2models";
+            if (Directory.Exists(dir1))
+                foreach (var modelDir in Directory.EnumerateDirectories(dir1))
+                {
+                    string DirName = Helper.PathToNameWithExtension(modelDir);
+                    DirName = DirName.Replace("/", "").Replace("\\", "");
+
+                    ListLocals.Items.Add(new ListBoxItem { Content = DirName, ToolTip = modelDir });
+                    if (DirName == PreviousModelName)
+                        ListLocals.SelectedIndex = ListLocals.Items.Count - 1;
+                }
+
             if (ListLocals.Items.IsEmpty)
             {
                 ButtonRetrain.Visibility = Visibility.Collapsed;

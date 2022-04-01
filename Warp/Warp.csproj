@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Warp</RootNamespace>
     <AssemblyName>Warp</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -318,6 +318,7 @@
     </Compile>
     <Compile Include="FileDiscoverer.cs" />
     <Compile Include="Options.cs" />
+    <Compile Include="WarpAnalytics\FakeAnalytics.cs" />
     <Compile Include="WebAPI.cs" />
     <Page Include="Controls\MainUI\FirstRunPrompt.xaml">
       <SubType>Designer</SubType>

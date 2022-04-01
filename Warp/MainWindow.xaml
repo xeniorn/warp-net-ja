@@ -9,7 +9,7 @@
                xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
                xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
                xmlns:Dialogs="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
-               Title="Durchlichtelektronenmikroskopiebilddatenentzerrungswerkzeug 1.0.9"
+               Title="Just Warp 1.0.9-ja220401"
                UseLayoutRounding="True" 
                ShowTitleBar="True" 
                SnapsToDevicePixels="False" 
@@ -18,16 +18,16 @@
                SizeToContent="Manual"
                GlowBrush="#41b1e1"
                WindowTitleBrush="#41b1e1"
-               MinWidth="1536"
-               MinHeight="1000"
-               Width="1536"
-               Height="1150">
+               MinWidth="400"
+               MinHeight="400"
+               Width="1200"
+               Height="1000">
     <Window.Resources>
         <ResourceDictionary>
             <l:NyquistAngstromConverter x:Key="nyquistAngstromConverter" />
         </ResourceDictionary>
     </Window.Resources>
-    <m:MetroWindow.RightWindowCommands>
+        <m:MetroWindow.RightWindowCommands>
         <m:WindowCommands>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <!--<Button Name="ButtonOpenLog" Content="OPEN LOG" FontSize="14" FontWeight="SemiBold" Foreground="White" VerticalAlignment="Center" Style="{StaticResource ChromelessButtonStyle}" Click="ButtonOpenLog_OnClick" />-->
@@ -37,6 +37,7 @@
             </StackPanel>
         </m:WindowCommands>
     </m:MetroWindow.RightWindowCommands>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
     <Grid>
         <Grid Name="TabRawData">
             <Grid.InputBindings>
@@ -681,4 +682,6 @@
             </Grid.RowDefinitions>
         </Grid>
     </Grid>
+    </ScrollViewer>
 </m:MetroWindow>
+

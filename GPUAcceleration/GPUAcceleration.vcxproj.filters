@@ -20,6 +20,7 @@
     <CudaCompile Include="MPARefine.cu" />
     <CudaCompile Include="PCA.cu" />
     <CudaCompile Include="RealspaceProjection.cu" />
+    <CudaCompile Include="Defects.cu" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Angles.cpp" />

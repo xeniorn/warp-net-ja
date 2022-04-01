@@ -356,10 +356,10 @@ __declspec(dllexport) void ProjectForward3DShiftedTex(uint64_t t_inputRe, uint64
     d_rlnProjectShifted(t_inputRe, t_inputIm, dimsinput, d_outputft, dimsoutput, (tfloat3*)h_angles, (tfloat3*)h_shifts, h_globalweights, supersample, batch);
 }
 
-__declspec(dllexport) void ProjectBackward(float2* d_volumeft, float* d_volumeweights, int3 dimsvolume, float2* d_projft, float* d_projweights, int2 dimsproj, int rmax, float3* h_angles, int* h_ivolume, float3 magnification, float ewaldradius, float supersample, bool outputdecentered, uint batch)
-{
-    d_rlnBackproject(d_volumeft, d_volumeweights, dimsvolume, d_projft, d_projweights, toInt3(dimsproj), rmax, (tfloat3*)h_angles, h_ivolume, magnification, ewaldradius, supersample, outputdecentered, batch);
-}
+//__declspec(dllexport) void ProjectBackward(float2* d_volumeft, float* d_volumeweights, int3 dimsvolume, float2* d_projft, float* d_projweights, int2 dimsproj, int rmax, float3* h_angles, int* h_ivolume, float3 magnification, float ewaldradius, float supersample, bool outputdecentered, uint batch)
+//{
+//    d_rlnBackproject(d_volumeft, d_volumeweights, dimsvolume, d_projft, d_projweights, toInt3(dimsproj), rmax, (tfloat3*)h_angles, h_ivolume, magnification, ewaldradius, supersample, outputdecentered, batch);
+//}
 
 __declspec(dllexport) void ProjectBackwardShifted(float2* d_volumeft, float* d_volumeweights, int3 dimsvolume, float2* d_projft, float* d_projweights, int2 dimsproj, int rmax, float3* h_angles, float3* h_shifts, float* h_globalweights, float supersample, uint batch)
 {

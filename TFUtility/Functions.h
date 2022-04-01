@@ -20,7 +20,7 @@
 #include "tensorflow/core/framework/types.h"
 #include "tensorflow/core/framework/versions.pb.h"
 #include "tensorflow/core/graph/graph.h"
-#include "tensorflow/core/graph/graph_constructor.h"
+#include "tensorflow/core/common_runtime/graph_constructor.h"
 #include "tensorflow/core/graph/node_builder.h"
 #include "tensorflow/core/lib/core/coding.h"
 #include "tensorflow/core/lib/core/errors.h"
@@ -46,4 +46,4 @@ extern "C" __declspec(dllexport) TF_Session* TF_LoadSessionFromSavedModelOnDevic
                                                                                   const char* export_dir, const char* const* tags, int tags_len,
                                                                                   TF_Graph* graph, const char* device, TF_Status* status);
 
-extern "C" __declspec(dllexport) void TF_FreeAllMemory();
+//extern "C" __declspec(dllexport) void TF_FreeAllMemory();

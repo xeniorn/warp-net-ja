@@ -8,10 +8,11 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>EstimateWeights</RootNamespace>
     <AssemblyName>EstimateWeights</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -59,10 +60,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GPUAcceleration\GPUAcceleration.vcxproj">
-      <Project>{7976e078-c29c-487d-b354-f9ed8a497178}</Project>
-      <Name>GPUAcceleration</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WarpLib\WarpLib.csproj">
       <Project>{4ba9ac95-ad8a-4519-a42d-0789718c8123}</Project>
       <Name>WarpLib</Name>

@@ -122,7 +122,7 @@ Status LoadMetaGraphIntoSession(const MetaGraphDef& meta_graph_def,
 Tensor CreateStringTensor(const string& value) 
 {
   Tensor tensor(DataType::DT_STRING, TensorShape({}));
-  tensor.scalar<string>()() = value;
+  tensor.scalar<tensorflow::tstring>()() = value;
   return tensor;
 }
 
@@ -167,7 +167,7 @@ Status RunMainOp(const RunOptions& run_options, const string& export_dir,
     AddAssetsTensorsToInputs(export_dir, asset_file_defs, &inputs);
     RunMetadata run_metadata;
     const tensorflow::StringPiece main_op_name = main_op_it->second.node_list().value(0);
-    return session->Run(run_options, inputs, {}, { main_op_name.ToString() },
+    return session->Run(run_options, inputs, {}, { string(main_op_name) },
                         nullptr /* outputs */, &run_metadata);
   }
   return Status::OK();
@@ -196,14 +196,14 @@ Status RunRestore(const RunOptions& run_options, const string& export_dir,
 
   // Add variables to the graph.
   Tensor variables_path_tensor(DataType::DT_STRING, TensorShape({}));
-  variables_path_tensor.scalar<string>()() = variables_path;
+  variables_path_tensor.scalar<tensorflow::tstring>()() = variables_path;
 
-  std::vector<std::pair<string, Tensor>> inputs = { { variable_filename_const_op_name.ToString(), variables_path_tensor } };
+  std::vector<std::pair<string, Tensor>> inputs = { { string(variable_filename_const_op_name), variables_path_tensor } };
 
   AddAssetsTensorsToInputs(export_dir, asset_file_defs, &inputs);
 
   RunMetadata run_metadata;
-  return session->Run(run_options, inputs, {}, { restore_op_name.ToString() },
+  return session->Run(run_options, inputs, {}, { string(restore_op_name) },
                       nullptr /* outputs */, &run_metadata);
 }
 
@@ -225,7 +225,7 @@ Status RunLegacyInitOp(const RunOptions& run_options, const string& export_dir,
     RunMetadata run_metadata;
     const tensorflow::StringPiece legacy_init_op_name = init_op_it->second.node_list().value(0);
     return session->Run(run_options, inputs, {},
-                        { legacy_init_op_name.ToString() }, nullptr /* outputs */,
+                        { string(legacy_init_op_name) }, nullptr /* outputs */,
                         &run_metadata);
   }
   return Status::OK();
@@ -343,7 +343,7 @@ static void GraphImportGraphDefLocked(TF_Graph* graph, const GraphDef& def,
 
   for (int i = 0; i < size; ++i) {
     TensorId id = results.missing_unused_input_map_keys[i];
-    tf_results->missing_unused_key_names_data.push_back(id.first.ToString());
+    tf_results->missing_unused_key_names_data.push_back(string(id.first));
     tf_results->missing_unused_key_names[i] =
       tf_results->missing_unused_key_names_data.back().c_str();
     tf_results->missing_unused_key_indexes[i] = id.second;
@@ -413,7 +413,7 @@ __declspec(dllexport) TF_Session* __stdcall TF_LoadSessionFromSavedModelOnDevice
     return session;
 }
 
-__declspec(dllexport) void __stdcall TF_FreeAllMemory()
-{
-	tensorflow::GPUProcessState::singleton()->~GPUProcessState();
-}
+//__declspec(dllexport) void __stdcall TF_FreeAllMemory()
+//{
+//	tensorflow::GPUProcessState::singleton()->~GPUProcessState();
+//}
