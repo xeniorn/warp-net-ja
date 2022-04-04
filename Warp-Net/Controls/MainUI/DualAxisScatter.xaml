@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
-             xmlns:local="clr-namespace:Warp.Controls;assembly=WarpControls-Net"
+             xmlns:local="clr-namespace:Warp.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="500">
     <Grid Background="Transparent">

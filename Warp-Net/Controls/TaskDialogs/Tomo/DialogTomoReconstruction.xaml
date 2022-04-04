@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:m="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              xmlns:s="clr-namespace:Sparta;assembly=WarpControls-Net"
-             xmlns:local="clr-namespace:Warp.Controls;assembly=WarpControls-Net"
+             xmlns:local="clr-namespace:Warp.Controls"
              mc:Ignorable="d">
     <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
         <TextBlock Text="Reconstruct full tomograms" FontSize="24" Margin="0,20" />

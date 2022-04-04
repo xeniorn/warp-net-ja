@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Threading;
 using LiveCharts;
 using LiveCharts.Defaults;
+using MahApps.Metro;
 using MahApps.Metro.Controls.Dialogs;
 using Warp.Controls;
 using Warp.Controls.TaskDialogs.Tomo;
@@ -24,7 +25,7 @@ using Warp.Controls.TaskDialogs.TwoD;
 using Warp.Headers;
 using Warp.Tools;
 using Path = System.IO.Path;
-using ControlzEx.Theming;
+
 
 namespace Warp
 {

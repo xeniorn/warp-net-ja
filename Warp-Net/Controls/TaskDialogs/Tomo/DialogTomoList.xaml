@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:m="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-             xmlns:local="clr-namespace:Warp.Controls;assembly=WarpControls-Net"
+             xmlns:local="clr-namespace:Warp.Controls"
              mc:Ignorable="d">
     <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
         <TextBlock Text="Export tomogram list" FontSize="24" Margin="0,20" />
