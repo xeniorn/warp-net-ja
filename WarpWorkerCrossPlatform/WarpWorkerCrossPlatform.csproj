@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <StartupObject>WarpWorker.Program1</StartupObject>
+    <BaseOutputPath>..\net6-bin</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>

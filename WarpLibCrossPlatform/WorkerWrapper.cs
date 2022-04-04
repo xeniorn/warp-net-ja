@@ -49,11 +49,19 @@ namespace Warp
 
             Formatter = new BinaryFormatter();
 
+            var ExeName = "WarpWorkerCrossPlatform.exe";
+
+            //ExeName =System.Reflection.Assembly.GetExecutingAssembly().GetName().Name + ".exe";
+
+            var ExePath = Helper.PathToFolder(System.Reflection.Assembly.GetEntryAssembly().Location);
+
+            var finalPath = Path.Combine(ExePath, ExeName);
+
             Worker = new Process
             {
                 StartInfo =
                 {
-                    FileName = Path.Combine(Helper.PathToFolder(System.Reflection.Assembly.GetEntryAssembly().Location), "WarpWorker.exe"),
+                    FileName = finalPath,
                     CreateNoWindow = false,
                     WindowStyle = ProcessWindowStyle.Minimized,
                     Arguments = $"{DeviceID} WarpWorker{UID} {Debugger.IsAttached}"
