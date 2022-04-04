@@ -7,37 +7,24 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.ServiceModel;
-using System.ServiceModel.Description;
-using System.ServiceModel.Web;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
-using Accord.Math.Optimization;
 using LiveCharts;
 using LiveCharts.Defaults;
-using MahApps.Metro;
-using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
-using Nancy.Hosting.Wcf;
 using Warp.Controls;
 using Warp.Controls.TaskDialogs.Tomo;
 using Warp.Controls.TaskDialogs.TwoD;
 using Warp.Headers;
-using Warp.Sociology;
 using Warp.Tools;
-using Menu = System.Windows.Forms.Menu;
 using Path = System.IO.Path;
+using ControlzEx.Theming;
 
 namespace Warp
 {
@@ -355,18 +342,18 @@ namespace Warp
 
             if (GlobalOptions.APIPort > 0)
             {
-                try
-                {
-                    var host = new WebServiceHost(new NancyWcfGenericService(), new Uri($"http://localhost:{GlobalOptions.APIPort}/Warp/"));
-                    host.AddServiceEndpoint(typeof(NancyWcfGenericService), new WebHttpBinding(), "");
-                    host.Open();
-                }
-                catch (Exception exc)
-                {
-                    this.ShowMessageAsync("Oops, there was a problem starting the web API service",
-                                            exc.ToString(),
-                                            MessageDialogStyle.Affirmative);
-                }
+                //try
+                //{
+                //    var host = new WebServiceHost(new NancyWcfGenericService(), new Uri($"http://localhost:{GlobalOptions.APIPort}/Warp/"));
+                //    host.AddServiceEndpoint(typeof(NancyWcfGenericService), new WebHttpBinding(), "");
+                //    host.Open();
+                //}
+                //catch (Exception exc)
+                //{
+                //    this.ShowMessageAsync("Oops, there was a problem starting the web API service",
+                //                            exc.ToString(),
+                //                            MessageDialogStyle.Affirmative);
+                //}
             }
 
             #endregion
@@ -824,6 +811,7 @@ namespace Warp
 
         private void ButtonInputPath_OnClick(object sender, RoutedEventArgs e)
         {
+            
             System.Windows.Forms.FolderBrowserDialog Dialog = new System.Windows.Forms.FolderBrowserDialog
             {
                 SelectedPath = Options.Import.Folder
@@ -2516,6 +2504,7 @@ namespace Warp
                         Suffixes.Add(suffix);
 
             Suffixes.Sort();
+            //TODO: JA
             Dispatcher.InvokeAsync(() =>
             {
                 MenuParticlesSuffix.Items.Clear();
