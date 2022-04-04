@@ -1108,6 +1108,8 @@ namespace Warp
 
                 ButtonStartProcessing.Content = "STOP PROCESSING";
                 ButtonStartProcessing.Foreground = Brushes.Red;
+                ButtonStartProcessing1.Content = "STOP PROCESSING";
+                ButtonStartProcessing1.Foreground = Brushes.Red;
                 IsPreprocessing = true;
 
                 bool IsTomo = Options.Import.ExtensionTomoSTAR;
@@ -1960,6 +1962,9 @@ namespace Warp
                 ButtonStartProcessing.IsEnabled = false;
                 ButtonStartProcessing.Content = "STOPPING...";
 
+                ButtonStartProcessing1.IsEnabled = false;
+                ButtonStartProcessing1.Content = "STOPPING...";
+
                 IsPreprocessing = false;
                 if (PreprocessingTask != null)
                 {
@@ -1987,6 +1992,10 @@ namespace Warp
                 ButtonStartProcessing.IsEnabled = true;
                 ButtonStartProcessing.Content = "START PROCESSING";
                 ButtonStartProcessing.Foreground = new LinearGradientBrush(Colors.DeepSkyBlue, Colors.DeepPink, 0);
+
+                ButtonStartProcessing1.IsEnabled = true;
+                ButtonStartProcessing1.Content = "START PROCESSING";
+                ButtonStartProcessing1.Foreground = new LinearGradientBrush(Colors.DeepSkyBlue, Colors.DeepPink, 0);
 
                 IsStoppingPreprocessing = false;
             }

@@ -65,6 +65,7 @@
                     <Grid.RowDefinitions>
                             <RowDefinition Height="40" />
                             <RowDefinition Height="*" />
+                            <RowDefinition Height="40" />
                         </Grid.RowDefinitions>
                         <Button Name="ButtonStartProcessing" Grid.Row="0" Grid.Column="0" Content="START PROCESSING" FontSize="22   " HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="0,0,0,8" Style="{StaticResource ChromelessButtonStyle}" Click="ButtonStartProcessing_OnClick">
                             <Button.Foreground>
@@ -74,7 +75,7 @@
                                 </LinearGradientBrush>
                             </Button.Foreground>
                         </Button>
-                        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" Margin="4,0">
+                                                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" Margin="4,0">
                                 
                                 <StackPanel Orientation="Horizontal" Margin="6,8,0,8">
                                 <Button Name="ButtonOptionsSave" Content="SAVE SETTINGS" FontWeight="Medium" Foreground="CornflowerBlue"  Style="{StaticResource ChromelessButtonStyle}" Click="ButtonOptionsSave_OnClick" />
@@ -410,6 +411,14 @@
                                         </Grid>
                                     </StackPanel>
                                 </Expander>
+                            <Button Name="ButtonStartProcessing1" Grid.Row="2" Grid.Column="0" Content="START PROCESSING" FontSize="22   " HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="0,0,0,8" Style="{StaticResource ChromelessButtonStyle}" Click="ButtonStartProcessing_OnClick">
+                                <Button.Foreground>
+                                    <LinearGradientBrush>
+                                        <GradientStop Color="DeepSkyBlue" Offset="0"/>
+                                        <GradientStop Color="DeepPink" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Foreground>
+                            </Button>
                         </StackPanel>
                     
                     

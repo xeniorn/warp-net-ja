@@ -70,11 +70,14 @@ namespace Warp.Controls
 
         public void UpdateLines()
         {
+            var drawPointX = PointsX + 1;
+            var drawPointY = PointsY + 1;
+
             MainCanvas.Children.Clear();
             
-            float StepX = PointsX > 1 ? 1f / (float)(PointsX - 1) : 0f;
-            float StepY = PointsY > 1 ? 1f / (float)(PointsY - 1) : 0f;
-            float2 Origin = new float2(PointsX > 1 ? 0 : 0.5f, PointsY > 1 ? 0 : 0.5f);
+            float StepX = drawPointX > 1 ? 1f / (float)(drawPointX - 1) : 0f;
+            float StepY = drawPointY > 1 ? 1f / (float)(drawPointY - 1) : 0f;
+            float2 Origin = new float2(drawPointX > 1 ? 0 : 0.5f, drawPointY > 1 ? 0 : 0.5f);
 
             float2 VecX = new float2((float) ActualWidth / 2f, (float)ActualWidth / 6f);
             float2 VecY = new float2(-(float) ActualWidth / 2f, (float)ActualWidth / 6f);
@@ -84,14 +87,14 @@ namespace Warp.Controls
 
             Height = ActualWidth / 3 + Math.Min(DrawMaxZ, PointsZ) * ZLayerOffset + 6;
 
-            for (int x = 0; x < PointsX; x++)
+            for (int x = 0; x < drawPointX; x++)
             {
                 float2 From = new float2(Origin.X + x * StepX, Origin.Y);
                 From = new float2(VecX.X * From.X + VecY.X * From.Y + Offset.X, VecX.Y * From.X + VecY.Y * From.Y + Offset.Y);
-                float2 To = new float2(Origin.X + x * StepX, Origin.Y + (PointsY - 1) * StepY);
+                float2 To = new float2(Origin.X + x * StepX, Origin.Y + (drawPointY - 1) * StepY);
                 To = new float2(VecX.X * To.X + VecY.X * To.Y + Offset.X, VecX.Y * To.X + VecY.Y * To.Y + Offset.Y);
 
-                if (PointsY > 1)
+                if (drawPointY > 1)
                 {
                     Line XLine = new Line();
                     XLine.Stroke = Foreground;
@@ -115,13 +118,13 @@ namespace Warp.Controls
                     Canvas.SetTop(XCircle, From.Y - 2f);
                 }
 
-                if (PointsZ > 1 && (x == PointsX - 1 || PointsY <= 1))
+                if (PointsZ > 1 && (x == drawPointX - 1 || drawPointY <= 1))
                 {
                     for (int z = 1; z < Math.Min(DrawMaxZ, PointsZ); z++)
                     {
                         float GreyValue = z / (float)Math.Min(DrawMaxZ, PointsZ) * 0.7f + 0.15f;
 
-                        if (PointsY > 1)
+                        if (drawPointY > 1)
                         {
                             Line XLine = new Line();
                             XLine.Stroke = Foreground.Clone();
@@ -150,14 +153,14 @@ namespace Warp.Controls
                 }
             }
 
-            for (int y = 0; y < PointsY; y++)
+            for (int y = 0; y < drawPointY; y++)
             {
                 float2 From = new float2(Origin.X, Origin.Y + y * StepY);
                 From = new float2(VecX.X * From.X + VecY.X * From.Y + Offset.X, VecX.Y * From.X + VecY.Y * From.Y + Offset.Y);
-                float2 To = new float2(Origin.X + (PointsX - 1) * StepX, Origin.Y + y * StepY);
+                float2 To = new float2(Origin.X + (drawPointX - 1) * StepX, Origin.Y + y * StepY);
                 To = new float2(VecX.X * To.X + VecY.X * To.Y + Offset.X, VecX.Y * To.X + VecY.Y * To.Y + Offset.Y);
 
-                if (PointsX > 1)
+                if (drawPointX > 1)
                 {
                     Line YLine = new Line();
                     YLine.Stroke = Foreground;
@@ -181,13 +184,13 @@ namespace Warp.Controls
                     Canvas.SetTop(YCircle, From.Y - 2f);
                 }
 
-                if (PointsZ > 1 && (y == PointsY - 1 || PointsX <= 1))
+                if (PointsZ > 1 && (y == drawPointY - 1 || drawPointX <= 1))
                 {
                     for (int z = 1; z < Math.Min(DrawMaxZ, PointsZ); z++)
                     {
                         float GreyValue = z / (float)Math.Min(DrawMaxZ, PointsZ) * 0.7f + 0.15f;
 
-                        if (PointsX > 1)
+                        if (drawPointX > 1)
                         {
                             Line YLine = new Line();
                             YLine.Stroke = Foreground.Clone();
