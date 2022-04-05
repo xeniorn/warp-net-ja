@@ -148,7 +148,7 @@
                                             </StackPanel>
                                             <TextBlock Grid.Row="2" Grid.Column="0" Text="Bin: " />
                                             <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
-                                                <s:ValueSlider Value="{Binding Import.BinTimes, Mode=TwoWay}" UpdateTrigger="PropertyChanged" TextFormat="{}{0}x " MinValue="0" MaxValue="10" StepSize="0.01" />
+                                                <s:ValueSlider Value="{Binding Import.BinTimes, Mode=TwoWay}" UpdateTrigger="PropertyChanged" TextFormat="{}{0}-log2fold " MinValue="0" MaxValue="10" StepSize="0.01" />
                                             <s:ValueSlider Value="{Binding Import.BinTimes, Mode=TwoWay, Converter={StaticResource BinaryLogToLinearConverter}}" UpdateTrigger="PropertyChanged" TextFormat="{} ({0}x-fold) " MinValue="1" MaxValue="64" StepSize="0.2" />
                                             <s:FormattedTextBlock Value="{Binding Runtime.BinnedPixelSizeMean}" TextFormat="({0:0.0000} Å/px)" />
                                             </StackPanel>
