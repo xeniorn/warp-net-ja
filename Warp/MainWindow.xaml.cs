@@ -2384,10 +2384,14 @@ namespace Warp
                 PlotStatsAstigmatism.AxisMax = AstigmatismMax / StatsAstigmatismZoom;
 
                 // Scale and position the valid range ellipse
-                StatsAstigmatismEllipseSigma.Width = AstigmatismStd * StatsAstigmatismZoom * (float)Options.Filter.AstigmatismMax / AstigmatismMax * 256;
-                StatsAstigmatismEllipseSigma.Height = AstigmatismStd * StatsAstigmatismZoom * (float)Options.Filter.AstigmatismMax / AstigmatismMax * 256;
-                Canvas.SetLeft(StatsAstigmatismEllipseSigma, AstigmatismMean.X / AstigmatismMax * 128 * StatsAstigmatismZoom + 128 - StatsAstigmatismEllipseSigma.Width / 2);
-                Canvas.SetTop(StatsAstigmatismEllipseSigma, AstigmatismMean.Y / AstigmatismMax * 128 * StatsAstigmatismZoom + 128 - StatsAstigmatismEllipseSigma.Height / 2);
+                var scaleFactor1 = 64;
+                var scaleFactor2 = 2 * scaleFactor1;
+
+                var dia = AstigmatismStd * StatsAstigmatismZoom * (float)Options.Filter.AstigmatismMax / AstigmatismMax * scaleFactor2;
+                StatsAstigmatismEllipseSigma.Width = dia;
+                StatsAstigmatismEllipseSigma.Height = dia;
+                Canvas.SetLeft(StatsAstigmatismEllipseSigma, (AstigmatismMean.X / AstigmatismMax * StatsAstigmatismZoom - 1) * scaleFactor1  - dia / 2);
+                Canvas.SetTop(StatsAstigmatismEllipseSigma, (AstigmatismMean.Y / AstigmatismMax * StatsAstigmatismZoom - 1) * scaleFactor1  - dia / 2);
             });
 
             lock (Options)
@@ -4567,6 +4571,30 @@ namespace Warp
         }
 
         #endregion
+    }
+
+    public class BinaryLogToLinearConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value == null) return null;
+
+            return Math.Pow(2, Decimal.ToDouble((decimal)value)) ;
+
+
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value == null) return null;
+
+            var decValue = Decimal.ToDouble((decimal)value);
+
+            if (decValue<=0) return null;
+
+            return Math.Log(decValue,2);
+
+        }
     }
 
     public class NyquistAngstromConverter : IValueConverter

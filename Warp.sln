@@ -46,13 +46,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCA3d", "PCA3d\PCA3d.csproj
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GPUAcceleration", "GPUAcceleration\GPUAcceleration.vcxproj", "{7976E078-C29C-487D-B354-F9ED8A497178}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarpLibCrossPlatform", "WarpLibCrossPlatform\WarpLibCrossPlatform.csproj", "{646F6D70-FA3A-4B3B-8D19-42A2E63F81BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WarpLibCrossPlatform", "WarpLibCrossPlatform\WarpLibCrossPlatform.csproj", "{646F6D70-FA3A-4B3B-8D19-42A2E63F81BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarpWorkerCrossPlatform", "WarpWorkerCrossPlatform\WarpWorkerCrossPlatform.csproj", "{AA194D36-A569-424D-AF98-8B1AFC4C5187}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WarpWorkerCrossPlatform", "WarpWorkerCrossPlatform\WarpWorkerCrossPlatform.csproj", "{AA194D36-A569-424D-AF98-8B1AFC4C5187}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warp-Net", "Warp-Net\Warp-Net.csproj", "{7EB63D0B-7633-4D4E-8152-C2F1F6124BCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Warp-Net", "Warp-Net\Warp-Net.csproj", "{7EB63D0B-7633-4D4E-8152-C2F1F6124BCB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarpControls-Net", "WarpControls-Net\WarpControls-Net.csproj", "{6396040A-A7B0-4AAA-95B7-060DD4988565}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WarpControls-Net", "WarpControls-Net\WarpControls-Net.csproj", "{6396040A-A7B0-4AAA-95B7-060DD4988565}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester", "Tester\Tester.csproj", "{061F7246-2486-4C4D-8483-E4C268DEE09D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -316,6 +318,22 @@ Global
 		{6396040A-A7B0-4AAA-95B7-060DD4988565}.Release|Win32.Build.0 = Release|Any CPU
 		{6396040A-A7B0-4AAA-95B7-060DD4988565}.Release|x64.ActiveCfg = Release|Any CPU
 		{6396040A-A7B0-4AAA-95B7-060DD4988565}.Release|x64.Build.0 = Release|Any CPU
+		{061F7246-2486-4C4D-8483-E4C268DEE09D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{061F7246-2486-4C4D-8483-E4C268DEE09D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{061F7246-2486-4C4D-8483-E4C268DEE09D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{061F7246-2486-4C4D-8483-E4C268DEE09D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{061F7246-2486-4C4D-8483-E4C268DEE09D}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{061F7246-2486-4C4D-8483-E4C268DEE09D}.Debug|Win32.Build.0 = Debug|Any CPU
+		{061F7246-2486-4C4D-8483-E4C268DEE09D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{061F7246-2486-4C4D-8483-E4C268DEE09D}.Debug|x64.Build.0 = Debug|Any CPU
+		{061F7246-2486-4C4D-8483-E4C268DEE09D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{061F7246-2486-4C4D-8483-E4C268DEE09D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{061F7246-2486-4C4D-8483-E4C268DEE09D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{061F7246-2486-4C4D-8483-E4C268DEE09D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{061F7246-2486-4C4D-8483-E4C268DEE09D}.Release|Win32.ActiveCfg = Release|Any CPU
+		{061F7246-2486-4C4D-8483-E4C268DEE09D}.Release|Win32.Build.0 = Release|Any CPU
+		{061F7246-2486-4C4D-8483-E4C268DEE09D}.Release|x64.ActiveCfg = Release|Any CPU
+		{061F7246-2486-4C4D-8483-E4C268DEE09D}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

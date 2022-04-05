@@ -25,6 +25,7 @@
     <Window.Resources>
         <ResourceDictionary>
             <l:NyquistAngstromConverter x:Key="nyquistAngstromConverter" />
+            <l:BinaryLogToLinearConverter x:Key="BinaryLogToLinearConverter" />
             <Style TargetType="Expander" BasedOn="{StaticResource MetroExpander}">
                 <Setter Property="Margin" Value="1"></Setter>
                 <Setter Property="Background" Value="AliceBlue"></Setter>
@@ -148,7 +149,8 @@
                                             <TextBlock Grid.Row="2" Grid.Column="0" Text="Bin: " />
                                             <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
                                                 <s:ValueSlider Value="{Binding Import.BinTimes, Mode=TwoWay}" UpdateTrigger="PropertyChanged" TextFormat="{}{0}x " MinValue="0" MaxValue="10" StepSize="0.01" />
-                                                <s:FormattedTextBlock Value="{Binding Runtime.BinnedPixelSizeMean}" TextFormat="({0:0.0000} Å/px)" />
+                                            <s:ValueSlider Value="{Binding Import.BinTimes, Mode=TwoWay, Converter={StaticResource BinaryLogToLinearConverter}}" UpdateTrigger="PropertyChanged" TextFormat="{} ({0}x-fold) " MinValue="1" MaxValue="64" StepSize="0.2" />
+                                            <s:FormattedTextBlock Value="{Binding Runtime.BinnedPixelSizeMean}" TextFormat="({0:0.0000} Å/px)" />
                                             </StackPanel>
                                         </Grid>
                                         <StackPanel Name="GridOptionsIO2D"  Orientation="Horizontal" Margin="6,0" Height="24">
@@ -542,7 +544,7 @@
                                                     <EllipseGeometry RadiusX="128" RadiusY="128" Center="128,128"/>
                                                 </Grid.Clip>
                                                 <Canvas>
-                                                    <Ellipse Canvas.Left="39" Canvas.Top="39" Name="StatsAstigmatismEllipseSigma" Width="50" Height="50" Fill="{DynamicResource BlackBrush}" Opacity="0.06" StrokeThickness="0"/>
+                                                    <Ellipse Canvas.Left="96" Canvas.Top="39" Name="StatsAstigmatismEllipseSigma" Width="50" Height="50" Fill="{DynamicResource BlackBrush}" Opacity="0.06" StrokeThickness="0"/>
                                                 </Canvas>
                                                 <Ellipse Fill="Transparent" Stroke="LightGray" Opacity="0.5" Width="128" Height="128" MouseWheel="StatsAstigmatismBackground_OnMouseWheel" />
                                                 <Ellipse Fill="Transparent" Stroke="LightGray" Opacity="0.5" Width="64" Height="64" />
@@ -590,28 +592,6 @@
                                             </Expander.Header>
                                             <StackPanel Name="PanelStatsDefocus" Margin="0,0,0,0">                                        
                                         <w:SingleAxisScatter x:Name="PlotStatsDefocus" Height="100" RangeHighlightMin="{Binding Filter.DefocusMin}" RangeHighlightMax="{Binding Filter.DefocusMax}" PointClicked="PlotStatsDefocus_OnPointClicked" HighlightID="{Binding Runtime.OverviewPlotHighlightID, Mode=TwoWay}">
-                                            <w:SingleAxisScatter.PointColors>
-                                                <Color>#77cd77</Color>
-                                                <Color>#ffc456</Color>
-                                                <Color>#ff7d7d</Color>
-                                                <Color>#7edfff</Color>
-                                                <Color>DarkGray</Color>
-                                            </w:SingleAxisScatter.PointColors>
-                                        </w:SingleAxisScatter>
-                                    </StackPanel>
-                                        </Expander>
-                                        <Expander x:Name="ExpanderPhase" IsExpanded="False">
-                                            <Expander.Header>
-                                                <StackPanel Orientation="Horizontal" Margin="0,8">
-                                                    <TextBlock Text="Phase shift" FontSize="18" />
-                                                    <s:ValueSlider FontSize="18" Foreground="DarkGray" Value="{Binding Filter.PhaseMin, Mode=TwoWay}" UpdateTrigger="PropertyChanged" TextFormat="{} (use {0}" MinValue="0" MaxValue="1" StepSize="0.01" />
-                                                    <s:ValueSlider FontSize="18" Foreground="DarkGray" Value="{Binding Filter.PhaseMax, Mode=TwoWay}" UpdateTrigger="PropertyChanged" TextFormat="–{0} π)" MinValue="0" MaxValue="1" StepSize="0.01" />
-                                                </StackPanel>
-                                            </Expander.Header>
-                                        
-                                        <StackPanel Name="PanelStatsPhase" Margin="0,0,0,0">
-                                        
-                                        <w:SingleAxisScatter x:Name="PlotStatsPhase" Height="100" AxisMin="0" RangeHighlightMin="{Binding Filter.PhaseMin}" RangeHighlightMax="{Binding Filter.PhaseMax}" PointClicked="PlotStatsPhase_OnPointClicked" HighlightID="{Binding Runtime.OverviewPlotHighlightID, Mode=TwoWay}">
                                             <w:SingleAxisScatter.PointColors>
                                                 <Color>#77cd77</Color>
                                                 <Color>#ffc456</Color>
@@ -695,7 +675,29 @@
                                         </w:SingleAxisScatter>
                                     </StackPanel>
                                         </Expander>
-                                        <Expander x:Name="ExpanderCrap" IsExpanded="False">
+                                            <Expander x:Name="ExpanderPhase" IsExpanded="False">
+                                                <Expander.Header>
+                                                    <StackPanel Orientation="Horizontal" Margin="0,8">
+                                                        <TextBlock Text="Phase shift" FontSize="18" />
+                                                        <s:ValueSlider FontSize="18" Foreground="DarkGray" Value="{Binding Filter.PhaseMin, Mode=TwoWay}" UpdateTrigger="PropertyChanged" TextFormat="{} (use {0}" MinValue="0" MaxValue="1" StepSize="0.01" />
+                                                        <s:ValueSlider FontSize="18" Foreground="DarkGray" Value="{Binding Filter.PhaseMax, Mode=TwoWay}" UpdateTrigger="PropertyChanged" TextFormat="–{0} π)" MinValue="0" MaxValue="1" StepSize="0.01" />
+                                                    </StackPanel>
+                                                </Expander.Header>
+
+                                                <StackPanel Name="PanelStatsPhase" Margin="0,0,0,0">
+
+                                                    <w:SingleAxisScatter x:Name="PlotStatsPhase" Height="100" AxisMin="0" RangeHighlightMin="{Binding Filter.PhaseMin}" RangeHighlightMax="{Binding Filter.PhaseMax}" PointClicked="PlotStatsPhase_OnPointClicked" HighlightID="{Binding Runtime.OverviewPlotHighlightID, Mode=TwoWay}">
+                                                        <w:SingleAxisScatter.PointColors>
+                                                            <Color>#77cd77</Color>
+                                                            <Color>#ffc456</Color>
+                                                            <Color>#ff7d7d</Color>
+                                                            <Color>#7edfff</Color>
+                                                            <Color>DarkGray</Color>
+                                                        </w:SingleAxisScatter.PointColors>
+                                                    </w:SingleAxisScatter>
+                                                </StackPanel>
+                                            </Expander>
+                                            <Expander x:Name="ExpanderCrap" IsExpanded="False">
                                             <Expander.Header>
                                                 <StackPanel Orientation="Horizontal" Margin="0,8">
                                                     <TextBlock Text="💩" FontSize="22" VerticalAlignment="Center" />
