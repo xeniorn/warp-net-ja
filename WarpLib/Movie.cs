@@ -2626,7 +2626,7 @@ namespace Warp
                 }
 
                 Watch.Stop();
-                Debug.WriteLine(Watch.ElapsedMilliseconds / 1000.0);
+                Debug.WriteLine(String.Format("Boxnet pred of movie {0} took {1} s",Name, Watch.ElapsedMilliseconds / 1000.0));
 
                 AverageBN.FreeDevice();
             }

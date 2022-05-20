@@ -18,6 +18,7 @@ using TF_ImportGraphDefOptions = System.IntPtr;
 using TF_Library = System.IntPtr;
 using TF_BufferPtr = System.IntPtr;
 using TF_Function = System.IntPtr;
+using System.Diagnostics;
 
 namespace Warp.Tools
 {
@@ -68,7 +69,7 @@ namespace Warp.Tools
 
         // extern TF_Session * TF_LoadSessionFromSavedModel (const TF_SessionOptions *session_options, const TF_Buffer *run_options, const char *export_dir, const char *const *tags, int tags_len, TF_Graph *graph, TF_Buffer *meta_graph_def, TF_Status *status);
         [DllImport(NativeBinding.TensorFlowLibrary)]
-        static extern unsafe TF_Session TF_LoadSessionFromSavedModelOnDevice(TF_SessionOptions session_options, LLBuffer* run_options, string export_dir, string[] tags, int tags_len, TF_Graph graph, string device, TF_Status status);
+        static extern unsafe TF_Session TF_LoadSessionFromSavedModel(TF_SessionOptions session_options, LLBuffer* run_options, string export_dir, string[] tags, int tags_len, TF_Graph graph, LLBuffer* meta_graph_def, TF_Status status);
 
         /// <summary>
         /// Creates a session and graph from a saved session model
@@ -96,7 +97,7 @@ namespace Warp.Tools
             var cstatus = TFStatus.Setup(status);
             unsafe
             {
-                var h = TF_LoadSessionFromSavedModelOnDevice(sessionOptions.handle, runOptions == null ? null : runOptions.LLBuffer, exportDir, tags, tags.Length, graph.handle, device, cstatus.handle);
+                var h = TF_LoadSessionFromSavedModel(sessionOptions.handle, runOptions == null ? null : runOptions.LLBuffer, exportDir, tags, tags.Length, graph.handle, null, cstatus.handle);
 
                 if (cstatus.CheckMaybeRaise(status))
                 {
@@ -106,7 +107,14 @@ namespace Warp.Tools
             return null;
         }
 
-        [DllImport(NativeBinding.TensorFlowLibrary)]
-        public static extern unsafe void TF_FreeAllMemory();
+        //[DllImport(NativeBinding.TensorFlowLibrary)]
+        //public static extern unsafe void TF_FreeAllMemory();
+
+        public static void TF_FreeAllMemory()
+        {
+            Debug.WriteLine(@"Warning! Fake memory clear running. Memory probably getting leaked.");
+            
+        }
+
     }
 }

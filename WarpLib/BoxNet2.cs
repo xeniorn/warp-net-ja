@@ -338,7 +338,7 @@ namespace Warp
                         foreach (var tensor in TensorTrainingWeights)
                             tensor.Dispose();
 
-                    Session.DeleteSession();
+                    Session?.DeleteSession();
                 }
             }
         }

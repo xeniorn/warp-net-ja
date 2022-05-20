@@ -779,7 +779,8 @@ namespace Warp
         private void FileDiscoverer_FilesChanged()
         {
             Movie[] ImmutableItems = null;
-            Helper.Time("FileDiscoverer.GetImmutableFiles", () => ImmutableItems = FileDiscoverer.GetImmutableFiles());
+            //Helper.Time("FileDiscoverer.GetImmutableFiles", () => ImmutableItems = FileDiscoverer.GetImmutableFiles());
+            ImmutableItems = FileDiscoverer.GetImmutableFiles();
 
             Dispatcher.InvokeAsync(() =>
             {
@@ -788,7 +789,8 @@ namespace Warp
                     Options.Runtime.DisplayedMovie = ImmutableItems[0];
             });
 
-            Helper.Time("FileDiscoverer.UpdateStatsAll", () => UpdateStatsAll());
+            //Helper.Time("FileDiscoverer.UpdateStatsAll", () => UpdateStatsAll());
+            UpdateStatsAll();
         }
 
         private void FileDiscoverer_IncubationStarted()

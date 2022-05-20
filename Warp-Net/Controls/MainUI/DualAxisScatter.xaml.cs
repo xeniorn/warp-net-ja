@@ -274,8 +274,8 @@ namespace Warp.Controls
                 IsHitTestVisible = false
             };
             CanvasPlot.Children.Add(PointOutline);
-            Canvas.SetLeft(PointOutline, PointCenters[HighlightID].X - PointRadius - 2);
-            Canvas.SetTop(PointOutline, PointCenters[HighlightID].Y - PointRadius - 2);
+            //Canvas.SetLeft(PointOutline, PointCenters[HighlightID].X - PointRadius - 2);
+            //Canvas.SetTop(PointOutline, PointCenters[HighlightID].Y - PointRadius - 2);
         }
     }
 

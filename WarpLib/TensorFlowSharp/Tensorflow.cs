@@ -41,7 +41,8 @@ namespace TensorFlow
 {
 	static partial class NativeBinding
 	{
-		public const string TensorFlowLibrary = "libtensorflow";
+		//public const string TensorFlowLibrary = "libtensorflow";
+		public const string TensorFlowLibrary = "tensorflow";
 
 		internal static string GetStr (this IntPtr x) => Marshal.PtrToStringAnsi (x);
 
