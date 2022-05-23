@@ -56,6 +56,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WarpControls-Net", "WarpCon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester", "Tester\Tester.csproj", "{061F7246-2486-4C4D-8483-E4C268DEE09D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M-Net", "M-Net\M-Net.csproj", "{65313E54-FF54-4805-AF90-34A206A8F791}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -450,6 +452,30 @@ Global
 		{061F7246-2486-4C4D-8483-E4C268DEE09D}.Release|Win32.Build.0 = Release|Any CPU
 		{061F7246-2486-4C4D-8483-E4C268DEE09D}.Release|x64.ActiveCfg = Release|Any CPU
 		{061F7246-2486-4C4D-8483-E4C268DEE09D}.Release|x64.Build.0 = Release|Any CPU
+		{65313E54-FF54-4805-AF90-34A206A8F791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65313E54-FF54-4805-AF90-34A206A8F791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65313E54-FF54-4805-AF90-34A206A8F791}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{65313E54-FF54-4805-AF90-34A206A8F791}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{65313E54-FF54-4805-AF90-34A206A8F791}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{65313E54-FF54-4805-AF90-34A206A8F791}.Debug|Win32.Build.0 = Debug|Any CPU
+		{65313E54-FF54-4805-AF90-34A206A8F791}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{65313E54-FF54-4805-AF90-34A206A8F791}.Debug|x64.Build.0 = Debug|Any CPU
+		{65313E54-FF54-4805-AF90-34A206A8F791}.Debug-CUDA10|Any CPU.ActiveCfg = Debug|Any CPU
+		{65313E54-FF54-4805-AF90-34A206A8F791}.Debug-CUDA10|Any CPU.Build.0 = Debug|Any CPU
+		{65313E54-FF54-4805-AF90-34A206A8F791}.Debug-CUDA10|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{65313E54-FF54-4805-AF90-34A206A8F791}.Debug-CUDA10|Mixed Platforms.Build.0 = Debug|Any CPU
+		{65313E54-FF54-4805-AF90-34A206A8F791}.Debug-CUDA10|Win32.ActiveCfg = Debug|Any CPU
+		{65313E54-FF54-4805-AF90-34A206A8F791}.Debug-CUDA10|Win32.Build.0 = Debug|Any CPU
+		{65313E54-FF54-4805-AF90-34A206A8F791}.Debug-CUDA10|x64.ActiveCfg = Debug|Any CPU
+		{65313E54-FF54-4805-AF90-34A206A8F791}.Debug-CUDA10|x64.Build.0 = Debug|Any CPU
+		{65313E54-FF54-4805-AF90-34A206A8F791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65313E54-FF54-4805-AF90-34A206A8F791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65313E54-FF54-4805-AF90-34A206A8F791}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{65313E54-FF54-4805-AF90-34A206A8F791}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{65313E54-FF54-4805-AF90-34A206A8F791}.Release|Win32.ActiveCfg = Release|Any CPU
+		{65313E54-FF54-4805-AF90-34A206A8F791}.Release|Win32.Build.0 = Release|Any CPU
+		{65313E54-FF54-4805-AF90-34A206A8F791}.Release|x64.ActiveCfg = Release|Any CPU
+		{65313E54-FF54-4805-AF90-34A206A8F791}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
